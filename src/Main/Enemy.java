@@ -4,6 +4,7 @@
  */
 package Main;
 
+import Entities.EntityA;
 import Entities.EntityB;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -48,10 +49,19 @@ public class Enemy extends GameObject implements EntityB{
             y = -10;
         }
         
-        if(Physics.Collision(this, game.eA)){
+        for(int i = 0; i < game.eA.size(); i++){
+            EntityA tempEnt = game.eA.get(i);
+            
+            if(Physics.Collision(this, tempEnt)){
+                
+            c.removeEntity(tempEnt);
+            
             c.removeEntity(this);
             game.setEnemy_killed(game.getEnemy_killed()+1);
         }
+        }
+        
+        
         
         anim.runAnimation();
     }
