@@ -54,6 +54,8 @@ public class Game extends Canvas implements Runnable{
     public LinkedList<EntityA> eA;
     public LinkedList<EntityB> eB;
     
+    public static int HEALTH = 100 * 2;
+    
     public void init(){
         
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -70,8 +72,8 @@ public class Game extends Canvas implements Runnable{
         
         tex = new Textures(this);
         
-        p = new Player(200,200, tex);
         c = new Controller(tex, this);
+        p = new Player(200,200, tex, this, c);
         
         eA = c.getEntityA();
         eB = c.getEntityB();
@@ -154,7 +156,7 @@ public class Game extends Canvas implements Runnable{
     
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
-        
+     
         if(bs == null){
             createBufferStrategy(3);
             return;
@@ -168,6 +170,13 @@ public class Game extends Canvas implements Runnable{
         
         p.render(g);
         c.render(g);
+        
+        g.setColor(Color.gray);
+        g.fillRect(5, 5, 200, 30);
+        g.setColor(Color.green);
+        g.fillRect(5, 5, HEALTH, 30);
+        g.setColor(Color.white);
+        g.drawRect(5, 5, 200, 30);
         
         g.dispose();
         bs.show();
