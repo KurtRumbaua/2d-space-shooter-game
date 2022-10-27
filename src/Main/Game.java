@@ -54,7 +54,9 @@ public class Game extends Canvas implements Runnable{
     public LinkedList<EntityA> eA;
     public LinkedList<EntityB> eB;
     
-    public static int HEALTH = 100 * 2;
+    public static int HEALTH = 200;
+    
+    public String counterLabel = "Timer";
     
     public void init(){
         
@@ -107,6 +109,7 @@ public class Game extends Canvas implements Runnable{
             e.printStackTrace();
         }
         System.exit(1);
+        
     }
     
     @Override
@@ -182,6 +185,20 @@ public class Game extends Canvas implements Runnable{
         bs.show();
         
     }
+//    public void drawCountdown(Graphics g2d, int x, int y, int waitTime) {
+//    Font font = new Font("Serif", Font.PLAIN, 36);
+//    g2d.setFont(font);
+//    Color fontColor = new Color(0, 0, 255); // blue
+//    g2d.setColor(fontColor);
+//    for (int i = waitTime; i > 0; --i) {
+//        g2d.drawString(String.valueOf(i), x, y);
+//        try {
+//             Thread.sleep(1000); // 1 second
+//        } catch (InterruptedException ex) {
+//             Thread.currentThread().interrupt();
+//        }
+//    }
+//}
     
     public void mouseMoved(MouseEvent e){
         
@@ -216,6 +233,7 @@ public class Game extends Canvas implements Runnable{
         JMenu menu1 = new JMenu("Options");
         
         JMenuItem play = new JMenuItem("Play");
+        
         play.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent ev) {
         

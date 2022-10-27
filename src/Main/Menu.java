@@ -4,17 +4,38 @@
  */
 package Main;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
+import Main.MyTimerTask;
+import javax.swing.JLabel;
 
 /**
  *
  * @author kurt ian rumbaua
  */
 public class Menu extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Menu
      */
+    
+    private static int DELAY = 0;
+     private static int PERIOD = 1000;
+     Timer timer;
+     int num = 6;
+     
+     
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+    
+     
     public Menu() {
         initComponents();
     }
@@ -28,6 +49,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jbExit = new javax.swing.JButton();
         jbAbout = new javax.swing.JButton();
         jbPlay = new javax.swing.JButton();
@@ -36,6 +58,12 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("jLabel3");
+        jLabel3.setVisible(false);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
 
         jbExit.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         jbExit.setText("Exit");
@@ -85,15 +113,19 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAboutActionPerformed
 
     private void jbPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayActionPerformed
-        try {
-        Game.main(new String[0]);
-        } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, e);
-        }
+       
+        jbPlay.setVisible(false);
+        jbAbout.setVisible(false);
+        jbExit.setVisible(false);
         
-        this.setVisible(false);
+        go();
     }//GEN-LAST:event_jbPlayActionPerformed
-
+    
+    public void go(){
+        TimerTask task = new MyTimerTask(this);
+        timer = new Timer();
+        timer.schedule(task,DELAY,PERIOD);
+    }
     /**
      * @param args the command line arguments
      */
@@ -128,12 +160,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton jbAbout;
     private javax.swing.JButton jbExit;
     private javax.swing.JButton jbPlay;
     // End of variables declaration//GEN-END:variables
+
 }

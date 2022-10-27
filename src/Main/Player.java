@@ -9,6 +9,9 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import Main.Animation;
+import static Main.Game.HEALTH;
+import static javafx.application.Platform.exit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +23,7 @@ public class Player extends GameObject implements EntityA{
     Game game;
     Controller c;
     Animation anim;
+    Menu menu;
     
     public Player(double x, double y, Textures tex, Game game, Controller c){
         super(x, y);
@@ -42,6 +46,11 @@ public class Player extends GameObject implements EntityA{
                 c.removeEntity(tempEnt);
                 game.HEALTH -= 20;
                 game.setEnemy_killed(game.getEnemy_killed()+1);
+                
+                if(game.HEALTH < 1){
+                
+                System.exit(0);
+                }
             }
         }
         
