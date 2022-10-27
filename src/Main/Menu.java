@@ -8,6 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JOptionPane;
 import Main.MyTimerTask;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -59,11 +60,11 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("0");
         jLabel3.setVisible(false);
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         jbExit.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         jbExit.setText("Exit");
@@ -110,6 +111,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jbAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAboutActionPerformed
         // TODO add your handling code here:
+        
+        JOptionPane.showMessageDialog(null, "Submitted by Group 1\n\n Caraan, Angela\n David, Gener Ellis\n Garing, Genesis\n Salvadar, Lance\n Rumbaua, Kurt Ian");
+        
     }//GEN-LAST:event_jbAboutActionPerformed
 
     private void jbPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayActionPerformed
@@ -126,6 +130,32 @@ public class Menu extends javax.swing.JFrame {
         timer = new Timer();
         timer.schedule(task,DELAY,PERIOD);
     }
+
+    public JButton getJbAbout() {
+        return jbAbout;
+    }
+
+    public void setJbAbout(JButton jbAbout) {
+        this.jbAbout = jbAbout;
+    }
+
+    public JButton getJbExit() {
+        return jbExit;
+    }
+
+    public void setJbExit(JButton jbExit) {
+        this.jbExit = jbExit;
+    }
+
+    public JButton getJbPlay() {
+        return jbPlay;
+    }
+
+    public void setJbPlay(JButton jbPlay) {
+        this.jbPlay = jbPlay;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

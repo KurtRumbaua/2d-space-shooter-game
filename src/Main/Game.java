@@ -58,6 +58,7 @@ public class Game extends Canvas implements Runnable{
     
     public String counterLabel = "Timer";
     
+    
     public void init(){
         
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -185,20 +186,7 @@ public class Game extends Canvas implements Runnable{
         bs.show();
         
     }
-//    public void drawCountdown(Graphics g2d, int x, int y, int waitTime) {
-//    Font font = new Font("Serif", Font.PLAIN, 36);
-//    g2d.setFont(font);
-//    Color fontColor = new Color(0, 0, 255); // blue
-//    g2d.setColor(fontColor);
-//    for (int i = waitTime; i > 0; --i) {
-//        g2d.drawString(String.valueOf(i), x, y);
-//        try {
-//             Thread.sleep(1000); // 1 second
-//        } catch (InterruptedException ex) {
-//             Thread.currentThread().interrupt();
-//        }
-//    }
-//}
+
     
     public void mouseMoved(MouseEvent e){
         
@@ -231,29 +219,16 @@ public class Game extends Canvas implements Runnable{
         JFrame frame = new JFrame(game.TITLE);
         JMenuBar mb = new JMenuBar();
         JMenu menu1 = new JMenu("Options");
-        
-        JMenuItem play = new JMenuItem("Play");
-        
-        play.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent ev) {
-        
-          }
-        });
-        
-        menu1.add(play);
-        JMenuItem pause = new JMenuItem("Pause");
-        menu1.add(pause);
-        pause.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent ev) {
-        
-          }
-        });
+
         
         JMenuItem restart = new JMenuItem("Restart Game");
         menu1.add(restart);
         restart.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent ev) {
-        
+            
+           game.HEALTH = 200;
+           game.setEnemy_killed(0);
+           game.setEnemy_count(5);
           }
         });
         
@@ -278,7 +253,7 @@ public class Game extends Canvas implements Runnable{
         mb.add(about);
         about.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent ev) {
-            
+            JOptionPane.showMessageDialog( null , "Submitted by Group 1\n\n Caraan, Angela\n David, Gener Ellis\n Garing, Genesis\n Salvadar, Lance\n Rumbaua, Kurt Ian");
           }
         });
         

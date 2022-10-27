@@ -47,9 +47,26 @@ public class Player extends GameObject implements EntityA{
                 game.HEALTH -= 20;
                 game.setEnemy_killed(game.getEnemy_killed()+1);
                 
-                if(game.HEALTH < 1){
-                
-                System.exit(0);
+                if(game.HEALTH == 0){
+                    
+                    int result = JOptionPane.showConfirmDialog(null, "You died! Do you want to play again? \n Total Killed: " + game.getEnemy_killed(),"Retry", JOptionPane.YES_NO_OPTION);
+                    
+                    if(result == 0){
+                        try {
+                        game.HEALTH += 200;
+                        game.setEnemy_killed(0);
+                        game.setEnemy_count(5);
+                        game.run();
+                        } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                        }
+                    }
+                    else{
+                        
+                       System.exit(HEALTH);
+                        
+                    }
+                        
                 }
             }
         }

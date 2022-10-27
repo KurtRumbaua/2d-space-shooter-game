@@ -25,6 +25,10 @@ public class MyTimerTask extends TimerTask{
           m.timer.cancel();
           try {
         Game.main(new String[0]);
+        m.getJbPlay().setVisible(true);
+        m.getJbExit().setVisible(true);
+        m.getJbAbout().setVisible(true);
+        m.getjLabel3().setVisible(false);
         } catch (Exception e) {
         JOptionPane.showMessageDialog(null, e);
         }
